@@ -10,6 +10,9 @@ public class Bite : MonoBehaviour
     DragonGrowth dragonGrowth;
     KeyCode biteControl;
     bool mouthOpen; //Is the mouth open?
+    public float biteDamage;
+
+	Vector3 regurgitateForce;
 
     public bool MouthOpen
     {
@@ -37,7 +40,9 @@ public class Bite : MonoBehaviour
     void Start()
     {
         dragonGrowth = GetComponent<DragonGrowth>();
-        //biteControl = DragonControls.biteControl; TODO make that exist
+		biteControl = GetComponent<DragonControls>().biteControl;
+
+		regurgitateForce = Vector3.right * 5f; //TODO temp value
     }
 
     // Update is called once per frame
@@ -70,7 +75,7 @@ public class Bite : MonoBehaviour
     //Damage the bitten object
     void Crunch(Health other)
     {
-        //other.Damage()
+        other.Damage(biteDamage);
     }
 
     void Grab(GameObject other, Collision hit)
@@ -140,7 +145,13 @@ public class Bite : MonoBehaviour
         GameObject regurgitatedItem;
         regurgitatedItem = swallowedObjects[swallowedObjects.Count - 1];
 
-        regurgitatedItem = Instantiate(regurgitatedItem); //TODO set position of regurgitated item 
+		//This is already an instantiated object (see Swallow() method)
+		//regurgitatedItem = Instantiate(regurgitatedItem);
+
+		regurgitatedItem.transform.position = MouthCollider.transform.position;
+		Rigidbody itemRB = regurgitatedItem.AddComponent<Rigidbody>();
+		float facingDirection = MouthCollider.gameObject.transform.forward.z;
+		itemRB.AddForce(regurgitateForce * facingDirection);
 
         swallowedObjects.RemoveAt(swallowedObjects.Count - 1);
     }
