@@ -1,8 +1,0 @@
-sceneSetups:
-<<<<<<< HEAD
-- path: Assets/_Scenes/vivek test scene.unity
-=======
-- path: Assets/Scenes/zac test scene.unity
->>>>>>> dev
-  isLoaded: 1
-  isActive: 1
