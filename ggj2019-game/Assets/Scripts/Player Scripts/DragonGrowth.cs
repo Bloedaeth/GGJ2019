@@ -14,6 +14,7 @@ public class DragonGrowth : MonoBehaviour
     readonly float[] biteDamage = { 5, 50, 500, 5000 };
     Health health;
     Rigidbody body;
+    Bite bite;
     float baseMass;
 
     //Growth is a meter from 0 to 10000 that increases as you c o n s u m e
@@ -62,6 +63,7 @@ public class DragonGrowth : MonoBehaviour
             i++;            
         }
         health.armor = armor[tier];
+        bite.biteDamage = biteDamage[tier];
     }
 
 
@@ -70,6 +72,7 @@ public class DragonGrowth : MonoBehaviour
     {
         health = GetComponent<Health>();
         body = GetComponent<Rigidbody>();
+        bite = GetComponent<Bite>();
         baseMass = body.mass;
     }
 

@@ -10,6 +10,7 @@ public class Bite : MonoBehaviour
     DragonGrowth dragonGrowth;
     KeyCode biteControl;
     bool mouthOpen; //Is the mouth open?
+    public float biteDamage;
 
     public bool MouthOpen
     {
@@ -70,7 +71,7 @@ public class Bite : MonoBehaviour
     //Damage the bitten object
     void Crunch(Health other)
     {
-        //other.Damage()
+        other.Damage(biteDamage);
     }
 
     void Grab(GameObject other, Collision hit)
