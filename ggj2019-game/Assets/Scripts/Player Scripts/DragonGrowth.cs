@@ -32,12 +32,7 @@ public class DragonGrowth : MonoBehaviour
 
     }
 
-	void Start()
-	{
-		health = GetComponent<Health>();
-		body = GetComponent<Rigidbody>();
-		baseMass = body.mass;
-	}
+
 
 	//Returns growth level as a percentage of the max
 	float GrowthPercentage()
