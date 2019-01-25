@@ -21,8 +21,6 @@ public class Boar : MonoBehaviour
 	{
 		timeToMove = Random.Range(1f, 3.5f);
 
-		dragonDistance = 40;
-
 		float direction = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
 		moveDirection = Vector3.right * direction;
 	}
@@ -34,7 +32,7 @@ public class Boar : MonoBehaviour
 		dragonDistance = System.Math.Abs(dragon.transform.position.x - this.transform.position.x);
 		if (dragonDistance <= 10)
 		{
-			moveDirection = (dragon.transform.position - this.transform.position)/ System.Math.Abs(dragon.transform.position.x - this.transform.position.x);
+			moveDirection.x = (dragon.transform.position.x - this.transform.position.x)/ System.Math.Abs(dragon.transform.position.x - this.transform.position.x);
 			timeToMove = 2.0f;
 		}
 
