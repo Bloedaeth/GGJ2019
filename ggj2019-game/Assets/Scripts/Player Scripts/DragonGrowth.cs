@@ -32,8 +32,10 @@ public class DragonGrowth : MonoBehaviour
 
     }
 
-    //Returns growth level as a percentage of the max
-    float GrowthPercentage()
+
+
+	//Returns growth level as a percentage of the max
+	float GrowthPercentage()
     {
         return growth / maxGrowth;
     }
@@ -65,8 +67,6 @@ public class DragonGrowth : MonoBehaviour
         health.armor = armor[tier];
         bite.biteDamage = biteDamage[tier];
     }
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -75,12 +75,4 @@ public class DragonGrowth : MonoBehaviour
         bite = GetComponent<Bite>();
         baseMass = body.mass;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
 }
