@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    public GameObject DroppedItem;
+    public GameObject[] DroppedItem;
 
     // Start is called before the first frame update
     void Start()
@@ -16,5 +16,14 @@ public class Death : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Die()
+    {
+        foreach (GameObject drop in DroppedItem)
+        {
+            Instantiate(drop, transform.position, drop.transform.rotation);
+        }
+        Destroy(this.gameObject);
     }
 }
