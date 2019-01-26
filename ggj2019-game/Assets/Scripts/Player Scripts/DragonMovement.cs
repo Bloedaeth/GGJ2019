@@ -42,6 +42,7 @@ public class DragonMovement : MonoBehaviour
         rb.AddForce(Vector3.up * flyForce, ForceMode.Acceleration);
 
         // TODO
+        // Add woosh sound
         // add limit to fly ability
 
     }

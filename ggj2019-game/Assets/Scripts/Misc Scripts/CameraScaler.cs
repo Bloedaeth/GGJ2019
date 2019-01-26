@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraScaler : MonoBehaviour
@@ -22,13 +21,12 @@ public class CameraScaler : MonoBehaviour
         // debug control
         if (Input.GetKeyDown(KeyCode.L)) // when player levels up
         {
-            StartCoroutine(ScaleCam(new Vector3(0, transform.position.y + 5, transform.position.z - 10), scaleTime));
+            StartCoroutine(ScaleCam(scaleTime));
         }
     }
 
-    private IEnumerator ScaleCam(Vector3 destination, float timeToMove)
+    private IEnumerator ScaleCam(float timeToMove)
     {
-        
         var currentPos = transform.position;
         var t = Time.deltaTime / timeToMove;
         while (t < 1)
