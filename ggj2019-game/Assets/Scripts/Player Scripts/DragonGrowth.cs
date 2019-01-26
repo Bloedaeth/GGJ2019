@@ -9,7 +9,7 @@ public class DragonGrowth : MonoBehaviour
     const float maxScale = 10; //placeholder
     float scale;
     int tier;
-    readonly float[] tierThresholds = { 0, 1000, 3000, 10000 }; //TODO placeholder values
+    readonly float[] tierThresholds = { 0, 1500, 3000, 10000 }; //TODO placeholder values
     readonly float[] armor = { 0, 0, 15, 50 }; //Flat reduction in damage taken for each tier //TODO placeholder values
     readonly float[] biteDamage = { 5, 50, 500, 5000 };
     Health health;
@@ -46,13 +46,12 @@ public class DragonGrowth : MonoBehaviour
         scale = (maxScale - minScale) * GrowthPercentage() + minScale;
         body.mass = ((baseMass * maxScale - baseMass*minScale) * scale) + baseMass;
         transform.localScale = new Vector3(scale, scale, scale);
-        UpdateTier();
+        UpdateTier(); //TODO do this when nesting
     }
 
     public void Grow(float amount)
     {
         Growth += amount;
-        UpdateScale();
     }
 
     void UpdateTier()
@@ -68,6 +67,7 @@ public class DragonGrowth : MonoBehaviour
         }
         health.armor = armor[tier];
         bite.biteDamage = biteDamage[tier];
+        FindObjectOfType<CameraScaler>().StartScaleCam();
     }
     // Start is called before the first frame update
     void Start()

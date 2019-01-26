@@ -20,6 +20,10 @@ public class Health : MonoBehaviour
         set
         {
             hitPoints = value;
+            if (hitPoints > maxHitPoints)
+            {
+                hitPoints = maxHitPoints;
+            }
         }
     }
 
