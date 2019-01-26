@@ -5,11 +5,11 @@ using UnityEngine;
 public class DragonGrowth : MonoBehaviour
 {
     //Scale is what is applied to the transform
-    const float minScale = 0.1f; //flaceholder
-    const float maxScale = 10; //placeholder
-    float scale;
+    Vector3 minScale;
+    Vector3 maxScale; 
+    Vector3 scale;
     int tier;
-    readonly float[] tierThresholds = { 0, 1000, 3000, 10000 }; //TODO placeholder values
+    readonly float[] tierThresholds = { 0, 1500, 3000, 10000 }; //TODO placeholder values
     readonly float[] armor = { 0, 0, 15, 50 }; //Flat reduction in damage taken for each tier //TODO placeholder values
     readonly float[] biteDamage = { 5, 50, 500, 5000 };
     Health health;
@@ -44,8 +44,9 @@ public class DragonGrowth : MonoBehaviour
     void UpdateScale()
     {
         scale = (maxScale - minScale) * GrowthPercentage() + minScale;
-        body.mass = ((baseMass * maxScale - baseMass*minScale) * scale) + baseMass;
-        UpdateTier();
+        body.mass = ((baseMass * maxScale.y - baseMass*minScale.y) * scale.y) + baseMass;
+        transform.localScale = scale;
+        UpdateTier(); //TODO do this when nesting
     }
 
     public void Grow(float amount)
@@ -66,6 +67,7 @@ public class DragonGrowth : MonoBehaviour
         }
         health.armor = armor[tier];
         bite.biteDamage = biteDamage[tier];
+        FindObjectOfType<CameraScaler>().StartScaleCam();
     }
     // Start is called before the first frame update
     void Start()
@@ -74,5 +76,7 @@ public class DragonGrowth : MonoBehaviour
         body = GetComponent<Rigidbody>();
         bite = GetComponent<Bite>();
         baseMass = body.mass;
+        minScale = transform.localScale;
+        maxScale = new Vector3(minScale.x * 10, minScale.y * 10, minScale.z * 10);
     }
 }
