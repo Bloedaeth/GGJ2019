@@ -4,6 +4,7 @@ using UnityEngine;
 public class CameraScaler : MonoBehaviour
 {
     public GameObject player;
+    Vector3 previousPlayerPos;
 
     [Tooltip("Time for camera to scale")]
     public float scaleTime = 2.0f;
@@ -21,8 +22,24 @@ public class CameraScaler : MonoBehaviour
         // debug control
         if (Input.GetKeyDown(KeyCode.L)) // when player levels up
         {
-            StartCoroutine(ScaleCam(scaleTime));
+            StartScaleCam();
+        }        
+    }
+
+    private void LateUpdate()
+    {
+        //Follow the player
+        if (previousPlayerPos != null)
+        {
+            transform.position += player.transform.position - previousPlayerPos;
+            previousPlayerPos = player.transform.position;
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
         }
+    }
+
+    public void StartScaleCam()
+    {
+        StartCoroutine(ScaleCam(scaleTime));
     }
 
     private IEnumerator ScaleCam(float timeToMove)
@@ -32,7 +49,7 @@ public class CameraScaler : MonoBehaviour
         while (t < 1)
         {
             t += Time.deltaTime / scaleTime;
-            transform.position = Vector3.Slerp(currentPos, new Vector3(0, currentPos.y + 5, currentPos.z - 10), t);
+            transform.position = Vector3.Slerp(currentPos, new Vector3(transform.position.x, currentPos.y + 3, currentPos.z - 8), t);
             yield return null;
         }
 
