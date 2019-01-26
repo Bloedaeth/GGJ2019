@@ -58,4 +58,6 @@ public class EntitySpawner : MonoBehaviour
         entities.Remove(entities[entityIndex]);
         Destroy(entities[entityIndex]);
     }
+
+
 }
