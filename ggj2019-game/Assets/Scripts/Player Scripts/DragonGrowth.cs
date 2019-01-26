@@ -45,12 +45,14 @@ public class DragonGrowth : MonoBehaviour
     {
         scale = (maxScale - minScale) * GrowthPercentage() + minScale;
         body.mass = ((baseMass * maxScale - baseMass*minScale) * scale) + baseMass;
+        transform.localScale = new Vector3(scale, scale, scale);
         UpdateTier();
     }
 
     public void Grow(float amount)
     {
         Growth += amount;
+        UpdateScale();
     }
 
     void UpdateTier()

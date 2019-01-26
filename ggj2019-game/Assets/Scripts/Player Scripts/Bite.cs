@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Bite : MonoBehaviour
 {
-    Collider MouthCollider; //The area in which biting will work
+    Collider mouthCollider; //The area in which biting will work
     public GameObject GrabbedItem; 
     List<GameObject> swallowedObjects = new List<GameObject>();
     DragonGrowth dragonGrowth;
     KeyCode biteControl;
     bool mouthOpen; //Is the mouth open?
     [HideInInspector] public float biteDamage;
-    GameObject objectInMouth;
+    public GameObject objectInMouth;
     Rigidbody body;
     bool isStomachFull = false;
     bool isInLair = false;
@@ -46,7 +46,7 @@ public class Bite : MonoBehaviour
         dragonGrowth = GetComponent<DragonGrowth>();
 		biteControl = GetComponent<DragonControls>().biteControl;
         body = GetComponent<Rigidbody>();
-
+        FindMouth();
 		regurgitateForce = Vector3.right * 5f; //TODO temp value
     }
 
@@ -63,7 +63,7 @@ public class Bite : MonoBehaviour
         }
 
         //Test regurgitation
-        if (Input.GetKeyDown(GetComponent<DragonControls>().regurgitateTest))
+        if (Input.GetKeyDown(KeyCode.P))//GetComponent<DragonControls>().regurgitateTest))
         {
             Regurgitate();
         }
@@ -73,11 +73,7 @@ public class Bite : MonoBehaviour
     {
         objectInMouth = null;
     }
-
-    private void OnTriggerStay(Collider hit)
-    {
-        objectInMouth = hit.gameObject;
-    }
+    
 
     //Figure out what behaviour to perform out of Grab(), Swallow(), Crunch()
     void Chomp(GameObject other)
@@ -203,22 +199,26 @@ public class Bite : MonoBehaviour
     //TODO Animate regurgitation
     void Regurgitate()
     {
-        GameObject regurgitatedItem;
-        regurgitatedItem = swallowedObjects[swallowedObjects.Count - 1];
+        if (swallowedObjects.Count != 0)
+        {
+            GameObject regurgitatedItem;
+            regurgitatedItem = swallowedObjects[swallowedObjects.Count - 1];
+            regurgitatedItem.SetActive(true);
+            //This is already an instantiated object (see Swallow() method)
+            //regurgitatedItem = Instantiate(regurgitatedItem);
 
-		//This is already an instantiated object (see Swallow() method)
-		//regurgitatedItem = Instantiate(regurgitatedItem);
 
-		regurgitatedItem.transform.position = MouthCollider.transform.position;
-		Rigidbody itemRB = regurgitatedItem.AddComponent<Rigidbody>();
-		float facingDirection = MouthCollider.gameObject.transform.forward.z;
-		itemRB.AddForce(regurgitateForce * facingDirection);
+            regurgitatedItem.transform.position = mouthCollider.transform.position;
+            Rigidbody itemRB = regurgitatedItem.GetComponent<Rigidbody>();
+            float facingDirection = mouthCollider.gameObject.transform.forward.z;
+            itemRB.AddForce(regurgitateForce * facingDirection);
 
-        swallowedObjects.RemoveAt(swallowedObjects.Count - 1);
+            swallowedObjects.RemoveAt(swallowedObjects.Count - 1);
+        }
     }
 
     void FindMouth()
     {
-        MouthCollider = GameObject.Find("Mouth").GetComponent<Collider>();
+        mouthCollider = GameObject.Find("Mouth").GetComponent<Collider>();
     }
 }
