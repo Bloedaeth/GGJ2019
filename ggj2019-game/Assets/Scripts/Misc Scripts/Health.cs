@@ -6,10 +6,10 @@ public class Health : MonoBehaviour
 {
     //This script is for ANYTHING that has health
 
-    [SerializeField] float maxHitPoints;
+    public float maxHitPoints;
     [HideInInspector] public float armor;
 
-    float hitPoints;
+    [SerializeField] float hitPoints;
     public float HitPoints
     {
         get
@@ -23,6 +23,10 @@ public class Health : MonoBehaviour
             if (hitPoints > maxHitPoints)
             {
                 hitPoints = maxHitPoints;
+            }
+            if (HitPoints <= 0)
+            {
+                Die();
             }
         }
     }
@@ -67,6 +71,15 @@ public class Health : MonoBehaviour
     public void HealPercentage(float magnitude)
     {
         HitPoints += maxHitPoints * magnitude;
+    }
+
+    public void Die()
+    {
+        Death death = GetComponent<Death>();
+        if (death!= null)
+        {
+            death.Die();
+        }
     }
 
 }

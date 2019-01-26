@@ -11,7 +11,7 @@ public class DragonGrowth : MonoBehaviour
     int tier;
     readonly float[] tierThresholds = { 0, 1500, 3000, 10000 }; //TODO placeholder values
     readonly float[] armor = { 0, 0, 15, 50 }; //Flat reduction in damage taken for each tier //TODO placeholder values
-    readonly float[] biteDamage = { 5, 50, 500, 5000 };
+    readonly float[] biteDamage = { 50, 100, 200, 400 };
     Health health;
     Rigidbody body;
     Bite bite;
@@ -67,7 +67,7 @@ public class DragonGrowth : MonoBehaviour
         }
         health.armor = armor[tier];
         bite.biteDamage = biteDamage[tier];
-        FindObjectOfType<CameraScaler>().StartScaleCam();
+        //FindObjectOfType<CameraScaler>().StartScaleCam(); //Commented out for debugging other shit
     }
     // Start is called before the first frame update
     void Start()
@@ -78,5 +78,6 @@ public class DragonGrowth : MonoBehaviour
         baseMass = body.mass;
         minScale = transform.localScale;
         maxScale = new Vector3(minScale.x * 10, minScale.y * 10, minScale.z * 10);
+        UpdateScale();
     }
 }
