@@ -20,7 +20,7 @@ public class DragonGrowth : MonoBehaviour
     //Growth is a meter from 0 to 10000 that increases as you c o n s u m e
     const float maxGrowth = 10000f;
 
-    float growth;
+    [SerializeField] float growth;
     public float Growth {
         get => 
             growth;
