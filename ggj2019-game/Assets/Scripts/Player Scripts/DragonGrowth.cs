@@ -14,12 +14,13 @@ public class DragonGrowth : MonoBehaviour
     readonly float[] biteDamage = { 5, 50, 500, 5000 };
     Health health;
     Rigidbody body;
+    Bite bite;
     float baseMass;
 
     //Growth is a meter from 0 to 10000 that increases as you c o n s u m e
     const float maxGrowth = 10000f;
 
-    float growth;
+    [SerializeField] float growth;
     public float Growth {
         get => 
             growth;
@@ -31,12 +32,7 @@ public class DragonGrowth : MonoBehaviour
 
     }
 
-	void Start()
-	{
-		health = GetComponent<Health>();
-		body = GetComponent<Rigidbody>();
-		baseMass = body.mass;
-	}
+
 
 	//Returns growth level as a percentage of the max
 	float GrowthPercentage()
@@ -69,5 +65,14 @@ public class DragonGrowth : MonoBehaviour
             i++;            
         }
         health.armor = armor[tier];
+        bite.biteDamage = biteDamage[tier];
+    }
+    // Start is called before the first frame update
+    void Start()
+    {
+        health = GetComponent<Health>();
+        body = GetComponent<Rigidbody>();
+        bite = GetComponent<Bite>();
+        baseMass = body.mass;
     }
 }

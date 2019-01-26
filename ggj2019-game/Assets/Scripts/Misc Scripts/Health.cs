@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     //This script is for ANYTHING that has health
 
     [SerializeField] float maxHitPoints;
-    public float armor;
+    [HideInInspector] public float armor;
 
     float hitPoints;
     public float HitPoints
