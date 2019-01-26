@@ -11,7 +11,7 @@ public class Boar : MonoBehaviour
 		//Temporary variable for distance away the dragon is
 	private float dragonDistance;
 
-	[SerializeField] private float speed = 0.1f;
+	[SerializeField] private float speed = 0.05f;
 
 	private float timeToMove = 0f;
 
@@ -21,20 +21,43 @@ public class Boar : MonoBehaviour
 	{
 		timeToMove = Random.Range(1f, 3.5f);
 
-		float direction = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
-		moveDirection = Vector3.right * direction;
+		float dirMultiplier = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
+        if (dirMultiplier == -1)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.up * 90);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(Vector3.up * 270);
+        }
+        moveDirection = Vector3.forward;
 	}
 
 	private void Update()
 	{
-		Debug.Log(timeToMove);
 		timeToMove -= Time.deltaTime;
 		dragonDistance = System.Math.Abs(dragon.transform.position.x - this.transform.position.x);
-		if (dragonDistance <= 10)
+		if ( (dragonDistance <= 10) && (dragon.transform.position.y < 4))
 		{
-			moveDirection.x = (dragon.transform.position.x - this.transform.position.x)/ System.Math.Abs(dragon.transform.position.x - this.transform.position.x);
-			timeToMove = 2.0f;
+            speed = 0.09f;
+            //rotate to look at the dragon
+            if (dragon.transform.position.x - this.transform.position.x < 0)
+            {
+                transform.rotation = Quaternion.Euler(Vector3.up * 270);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(Vector3.up * 90);
+            }
+
+            //moveDirection.x = (dragon.transform.position.x - this.transform.position.x)/ System.Math.Abs(dragon.transform.position.x - this.transform.position.x);
+            moveDirection = Vector3.forward;
+            timeToMove = 2.0f;
 		}
+        else
+        {
+            speed = 0.05f;
+        }
 
 		if(timeToMove <= 0f)
 			TryMove();
@@ -55,7 +78,15 @@ public class Boar : MonoBehaviour
 		timeToMove = Random.Range(1f, 3.5f);
 
 		float dirMultiplier = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
-		moveDirection = Vector3.right * dirMultiplier;
-		transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y *dirMultiplier, transform.localScale.z);
+        if (dirMultiplier == -1)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.up * 90);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(Vector3.up * 270);
+        }
+        moveDirection = Vector3.forward;
+		//transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y *dirMultiplier, transform.localScale.z);
 	}
 }

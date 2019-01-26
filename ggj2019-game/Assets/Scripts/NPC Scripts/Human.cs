@@ -8,7 +8,7 @@ public class Human : MonoBehaviour
     public GameObject dragon;
     public ObjectPooler arrowPool;
     private float dragonDistance;
-    [SerializeField] private float speed = 0.1f;
+    [SerializeField] private float speed = 0.07f;
 
 	private float timeToMove = 0f;
 
@@ -35,20 +35,29 @@ public class Human : MonoBehaviour
         //get the hypotenuse between the dragon and the human
         dragonDistance = (float)System.Math.Sqrt(  System.Math.Pow(dragon.transform.position.x - this.transform.position.x, 2) + System.Math.Pow(dragon.transform.position.y - this.transform.position.y, 2));
         //if youre close enough, the human will stop and shoot arrows at you
-        //if (dragonDistance <= 30)
-        //{   
-        //    if (timeToReload <= 0)
-        //    {
-        //        timeToReload = 5f;
-        //        Arrow arrow = arrowPool.GetPooledObject().GetComponent<Arrow>();
-        //        arrow.Shoot(dragon.transform, this);
-        //    }
-        //}
-        //else
-        //{
-        Debug.Log(moveDirection);
+        if (dragonDistance <= 15)
+        {
+            //face the dragon
+            if (dragon.transform.position.x - this.transform.position.x < 0)
+            {
+                transform.rotation = Quaternion.Euler(Vector3.up * 270);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(Vector3.up * 90);
+            }
+
+            if (timeToReload <= 0)
+            {
+                timeToReload = 5f;
+                Arrow arrow = arrowPool.GetPooledObject().GetComponent<Arrow>();
+                arrow.Shoot(dragon.transform, this);
+            }
+        }
+        else
+        {
             transform.Translate(moveDirection * speed);
-       // }
+        }
     }
 
 	private void TryMove()
