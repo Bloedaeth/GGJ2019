@@ -1,5 +1,63 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &796545227412965047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2514966588085119255}
+  - component: {fileID: 2057770140264814610}
+  - component: {fileID: 3077686544033461579}
+  m_Layer: 0
+  m_Name: Mouth
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2514966588085119255
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796545227412965047}
+  m_LocalRotation: {x: 0.42038992, y: 0.42038965, z: -0.56857073, w: -0.5685703}
+  m_LocalPosition: {x: 0.099, y: 0.686, z: 0.326}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 11061438160337392}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2057770140264814610
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796545227412965047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3077686544033461579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796545227412965047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04f2118a936599046a571145b17a546f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bite: {fileID: 7302364412196560508}
 --- !u!1 &7717290134136057044
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +72,8 @@ GameObject:
   - component: {fileID: 3093865230720599988}
   - component: {fileID: 4549153714223530123}
   - component: {fileID: 2870362200598282972}
-  - component: {fileID: 9043045169422931052}
+  - component: {fileID: 7302364412196560508}
+  - component: {fileID: 1632698865829447894}
   m_Layer: 0
   m_Name: PlayerDragon
   m_TagString: Untagged
@@ -113,6 +172,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growth: 0
+--- !u!114 &7302364412196560508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717290134136057044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e956d563b3958d643b756b15b06b3177, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabbedItem: {fileID: 0}
+  biteDamage: 0
+  objectInMouth: {fileID: 0}
+--- !u!65 &1632698865829447894
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717290134136057044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 3}
+  m_Center: {x: 0, y: 1, z: -0.9}
 --- !u!1001 &11061438160724790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -120,10 +207,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7086806899407631086}
     m_Modifications:
-    - target: {fileID: 100002, guid: 321824e1cdfe4cf4498dd8e6ead1e91e, type: 3}
-      propertyPath: m_Name
-      value: BabyDragon_Model3
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 321824e1cdfe4cf4498dd8e6ead1e91e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -168,11 +251,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 321824e1cdfe4cf4498dd8e6ead1e91e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 321824e1cdfe4cf4498dd8e6ead1e91e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 321824e1cdfe4cf4498dd8e6ead1e91e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 321824e1cdfe4cf4498dd8e6ead1e91e, type: 3}
+      propertyPath: m_Name
+      value: BabyDragon_Model3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 321824e1cdfe4cf4498dd8e6ead1e91e, type: 3}
 --- !u!4 &11061438160337332 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: 321824e1cdfe4cf4498dd8e6ead1e91e,
+    type: 3}
+  m_PrefabInstance: {fileID: 11061438160724790}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &11061438160337392 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400070, guid: 321824e1cdfe4cf4498dd8e6ead1e91e,
     type: 3}
   m_PrefabInstance: {fileID: 11061438160724790}
   m_PrefabAsset: {fileID: 0}
