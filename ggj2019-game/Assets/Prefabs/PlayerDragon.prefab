@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7086806899407631086}
-  - component: {fileID: 4686670962675344720}
   - component: {fileID: 6621394023929326778}
   - component: {fileID: 6076038256505198682}
   - component: {fileID: 3093865230720599988}
   - component: {fileID: 4549153714223530123}
   - component: {fileID: 2870362200598282972}
+  - component: {fileID: 9043045169422931052}
   m_Layer: 0
   m_Name: PlayerDragon
   m_TagString: Untagged
@@ -37,20 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &4686670962675344720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7717290134136057044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e956d563b3958d643b756b15b06b3177, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GrabbedItem: {fileID: 0}
-  biteDamage: 0
 --- !u!114 &6621394023929326778
 MonoBehaviour:
   m_ObjectHideFlags: 0
