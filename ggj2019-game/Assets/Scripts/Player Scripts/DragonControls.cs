@@ -8,4 +8,13 @@ public class DragonControls : MonoBehaviour
 	public KeyCode flyControl = KeyCode.W;
 	public KeyCode breathFireControl = KeyCode.Mouse1;
     public KeyCode regurgitateTest = KeyCode.P; //biteControl will have the regurgitate behaviour if in lair, but this control can be used for testing otherwise
+
+    public void ToggleControl(bool state)
+    {
+        GetComponent<Bite>().enabled = state;
+        GetComponent<DragonMovement>().enabled = state;
+        GetComponent<Rigidbody>().useGravity = state;
+        Debug.Log("Controls set to" + state);
+    }
+
 }

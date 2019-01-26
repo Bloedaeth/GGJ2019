@@ -6,7 +6,7 @@ public class Squirrel : MonoBehaviour
 {
 	//private Health health;
 
-	[SerializeField] private float speed = 0.1f;
+	[SerializeField] private float speed = 0.085f;
 
 	private float timeToMove = 0f;
 
@@ -16,13 +16,20 @@ public class Squirrel : MonoBehaviour
 	{
 		timeToMove = Random.Range(1f, 3.5f);
 
-		float direction = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
-		moveDirection = Vector3.right * direction;
+        float dirMultiplier = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
+        if (dirMultiplier == -1)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.up * 90);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(Vector3.up * 270);
+        }
+        moveDirection = Vector3.forward;
 	}
 
 	private void Update()
 	{
-		Debug.Log(timeToMove);
 		timeToMove -= Time.deltaTime;
 		if(timeToMove <= 0f)
 			TryMove();
@@ -42,8 +49,16 @@ public class Squirrel : MonoBehaviour
 
 		timeToMove = Random.Range(1f, 3.5f);
 
-		float dirMultiplier = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
-		moveDirection = Vector3.right * dirMultiplier;
-		transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y *dirMultiplier, transform.localScale.z);
-	}
+        float dirMultiplier = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
+        if (dirMultiplier == -1)
+        {
+            transform.rotation = Quaternion.Euler(Vector3.up * 90);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(Vector3.up * 270);
+        }
+        moveDirection = Vector3.forward;
+        //transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y *dirMultiplier, transform.localScale.z);
+    }
 }
