@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  flyForce: 10
+  flyForce: 200
   flightPower: 100
   increaseRate: 0.5
   decreaseRate: 1
@@ -339,3 +339,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58e29a78afed2e0489924d27c7424abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  growth: 0
