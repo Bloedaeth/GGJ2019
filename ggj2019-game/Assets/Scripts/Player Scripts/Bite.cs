@@ -14,6 +14,7 @@ public class Bite : MonoBehaviour
     GameObject objectInMouth;
     Rigidbody body;
     bool isStomachFull = false;
+    bool isInLair = false;
 
 	Vector3 regurgitateForce;
 
@@ -60,6 +61,12 @@ public class Bite : MonoBehaviour
         {
             MouthOpen = false;
         }
+
+        //Test regurgitation
+        if (Input.GetKeyDown(GetComponent<DragonControls>().regurgitateTest))
+        {
+            Regurgitate();
+        }
     }
 
     private void FixedUpdate()
@@ -85,6 +92,13 @@ public class Bite : MonoBehaviour
         //WAIT! Is there even a thing to chomp?
         if(objectInMouth == null)
         {
+            return;
+        }
+
+        //If in lair and not empty, regurgitate
+        if (isInLair)
+        {
+            Regurgitate();
             return;
         }
 
@@ -168,6 +182,7 @@ public class Bite : MonoBehaviour
             otherDrop = other.GetComponent<Death>().DroppedItem;
         }
 
+        //TODO make this logic better. not everything should go in the stomach.
         if (otherDrop == null)
         {
             swallowedObjects.Add(other);

@@ -4,7 +4,7 @@
 public class DragonMovement : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    public float flyForce = 10.0f;
+    public float flyForce;
 
     private bool canFly = true;
 
