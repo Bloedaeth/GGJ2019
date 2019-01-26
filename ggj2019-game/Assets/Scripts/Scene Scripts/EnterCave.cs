@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeaveCave : MonoBehaviour
+public class EnterCave : MonoBehaviour
 {
-    
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
