@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 505357175830715505}
   - component: {fileID: 2129279649408601584}
   - component: {fileID: 6266153127824138666}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Squirrel_Mdl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
