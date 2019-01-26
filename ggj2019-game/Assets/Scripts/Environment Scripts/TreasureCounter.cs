@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Death : MonoBehaviour
-{
-    public GameObject[] DroppedItem;
-
+public class TreasureCounter : MonoBehaviour
+{    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,13 +15,14 @@ public class Death : MonoBehaviour
     {
         
     }
-
-    public void Die()
+    
+    static int CountTreasure() //Call this when you enter the cave and when regurgitating
     {
-        foreach (GameObject drop in DroppedItem)
+        int count = 0;
+        foreach(Treasure treasure in FindObjectsOfType<Treasure>())
         {
-            Instantiate(drop, transform.position, drop.transform.rotation);
+            count += treasure.value;
         }
-        Destroy(this.gameObject);
+        return count;
     }
 }
