@@ -5,6 +5,7 @@ public class CameraScaler : MonoBehaviour
 {
     public GameObject player;
     Vector3 previousPlayerPos;
+    [SerializeField] GameObject LeftBound = null;
 
     [Tooltip("Time for camera to scale")]
     public float scaleTime = 2.0f;
@@ -34,6 +35,12 @@ public class CameraScaler : MonoBehaviour
             transform.position += player.transform.position - previousPlayerPos;
             previousPlayerPos = player.transform.position;
             transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+        }
+
+        //Don't go past the left bound
+        if (LeftBound!= null && transform.position.x < LeftBound.transform.position.x)
+        {
+            transform.position = new Vector3(LeftBound.transform.position.x, transform.position.y, transform.position.z);
         }
     }
 
