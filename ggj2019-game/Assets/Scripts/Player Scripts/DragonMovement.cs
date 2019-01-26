@@ -14,12 +14,15 @@ public class DragonMovement : MonoBehaviour
 
     private Rigidbody rb;
 
+    private KeyCode flyKey;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        flyKey = GetComponent<DragonControls>().flyControl;
     }
 
-    void Update()
+    private void LateUpdate()
     {
         GetKeyPress();
     }
@@ -27,23 +30,19 @@ public class DragonMovement : MonoBehaviour
     private void GetKeyPress() {
         
         float v = Input.GetAxis("Horizontal");
-        float h = Input.GetAxis("Vertical");
 
-        if (!canFly)
-        {
-            h *= 0;
-        }
         // fly only when w pressed
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(flyKey) && canFly)
             Fly();
 
         transform.position += new Vector3(v * moveSpeed * Time.deltaTime, 0, 0);
     }
 
     private void Fly() {
-        rb.AddForce(Vector3.up * flyForce, ForceMode.Force);
+        rb.AddForce(Vector3.up * flyForce, ForceMode.Acceleration);
 
-        // ToDo
+        // TODO
+        // Add woosh sound
         // add limit to fly ability
 
     }
