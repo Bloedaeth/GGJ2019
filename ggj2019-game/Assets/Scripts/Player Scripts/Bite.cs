@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Bite : MonoBehaviour
 {
-    public Collider MouthCollider; //The area in which biting will work
+    Collider MouthCollider; //The area in which biting will work
     public GameObject GrabbedItem; 
-    List<GameObject> swallowedObjects;
+    List<GameObject> swallowedObjects = new List<GameObject>();
     DragonGrowth dragonGrowth;
     KeyCode biteControl;
     bool mouthOpen; //Is the mouth open?
-    public float biteDamage;
+    [HideInInspector] public float biteDamage;
     GameObject objectInMouth;
     Rigidbody body;
     bool isStomachFull = false;
@@ -75,8 +75,15 @@ public class Bite : MonoBehaviour
     //Figure out what behaviour to perform out of Grab(), Swallow(), Crunch()
     void Chomp(GameObject other)
     {
+        Debug.Log("Bit " + other);
         //Is the mouth full though?
         if(GrabbedItem != null)
+        {
+            return;
+        }
+
+        //WAIT! Is there even a thing to chomp?
+        if(objectInMouth == null)
         {
             return;
         }
