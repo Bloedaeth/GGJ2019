@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(AudioSource))]
 public class DragonMovement : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
@@ -16,10 +17,18 @@ public class DragonMovement : MonoBehaviour
 
     private KeyCode flyKey;
 
+    public AudioClip woosh;
+    private AudioSource source;
+
+    private void Awake()
+    {
+        source = GetComponent<AudioSource>();
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        flyKey = GetComponent<DragonControls>().flyControl;
+        flyKey = GetComponent<DragonControls>().flyControl;       
     }
 
     private void LateUpdate()
@@ -41,9 +50,11 @@ public class DragonMovement : MonoBehaviour
     private void Fly() {
         rb.AddForce(Vector3.up * flyForce, ForceMode.Acceleration);
 
+        source.pitch = 0.25f;
+        source.PlayOneShot(woosh, 0.3f);
+        source.pitch = 1;
+        
         // TODO
-        // Add woosh sound
         // add limit to fly ability
-
     }
 }
