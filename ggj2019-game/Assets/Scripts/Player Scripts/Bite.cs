@@ -11,6 +11,9 @@ public class Bite : MonoBehaviour
     KeyCode biteControl;
     bool mouthOpen; //Is the mouth open?
     public float biteDamage;
+    GameObject objectInMouth;
+    Rigidbody body;
+    bool isStomachFull = false;
 
 	Vector3 regurgitateForce;
 
@@ -24,7 +27,7 @@ public class Bite : MonoBehaviour
         {
             if (mouthOpen == true && value == false)
             {
-                Chomp();
+                Chomp(objectInMouth);
             }
             else if (mouthOpen == false && value == true && GrabbedItem != null)
             {
@@ -41,6 +44,7 @@ public class Bite : MonoBehaviour
     {
         dragonGrowth = GetComponent<DragonGrowth>();
 		biteControl = GetComponent<DragonControls>().biteControl;
+        body = GetComponent<Rigidbody>();
 
 		regurgitateForce = Vector3.right * 5f; //TODO temp value
     }
@@ -58,46 +62,75 @@ public class Bite : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision hit)
+    private void FixedUpdate()
     {
-        if(true) //TODO only do this if the player is trying to grab AND the object is grabbable
-        {
-            Grab(hit.gameObject, hit);
-        }
+        objectInMouth = null;
+    }
+
+    private void OnTriggerStay(Collider hit)
+    {
+        objectInMouth = hit.gameObject;
     }
 
     //Figure out what behaviour to perform out of Grab(), Swallow(), Crunch()
-    void Chomp()
+    void Chomp(GameObject other)
     {
+        //Is the mouth full though?
+        if(GrabbedItem != null)
+        {
+            return;
+        }
 
+        //Crunch if enemy
+        if(other.transform.tag == "Enemy")
+        {
+            Crunch(other);
+            return;
+        }
+        //Is it bitable?
+        else if (other.transform.tag == "Food" || other.transform.tag == "Treasure")
+        {
+            //Alright, small enough to swallow? If not, is it small enough to grab?
+            Rigidbody otherBody = other.GetComponent<Rigidbody>();
+            if(otherBody.mass < body.mass / 4)
+            {
+                Swallow(other);
+                return;
+            }
+            else if (otherBody.mass < body.mass / 2)
+            {
+                Grab(other);
+                return;
+            }
+        }
     }
 
     //Damage the bitten object
-    void Crunch(Health other)
+    void Crunch(GameObject other)
     {
-        other.Damage(biteDamage);
+        other.GetComponent<Health>().Damage(biteDamage);
+        //TODO allow eating alive if big enough
     }
 
-    void Grab(GameObject other, Collision hit)
+    void Grab(GameObject other)
     {
         if (GrabbedItem == null)
         {
             Rigidbody otherBody = other.GetComponent<Rigidbody>();
-            if (otherBody.mass < GetComponent<Rigidbody>().mass / 2)
+            
+            /* 
+            //Glue the object to the dragon
+            foreach(ContactPoint contact in hit.contacts)
             {
-                /* 
-                //Glue the object to the dragon
-                foreach(ContactPoint contact in hit.contacts)
-                {
-                   FixedJoint fixedJoint = gameObject.AddComponent<FixedJoint>();
-                    fixedJoint.anchor = contact.point;
-                    fixedJoint.connectedBody = hit.rigidbody; 
-                 }*/                   
-                GrabbedItem = other;
-                other.transform.SetParent(transform);
-                otherBody.isKinematic = true;
-                otherBody.detectCollisions = false;
-            }
+                FixedJoint fixedJoint = gameObject.AddComponent<FixedJoint>();
+                fixedJoint.anchor = contact.point;
+                fixedJoint.connectedBody = hit.rigidbody; 
+             }*/
+            GrabbedItem = other;
+            other.transform.SetParent(transform);
+            otherBody.isKinematic = true;
+            otherBody.detectCollisions = false;
+
         }
     }
 
@@ -111,6 +144,12 @@ public class Bite : MonoBehaviour
 
     void Swallow(GameObject other)
     {
+        //Wait! Are you full?
+        if(isStomachFull == true)
+        {
+            return; //TODO give feedback
+        }
+
         if (other.GetComponent<Food>() != null)
         {
             Digest(other.GetComponent<Food>());
