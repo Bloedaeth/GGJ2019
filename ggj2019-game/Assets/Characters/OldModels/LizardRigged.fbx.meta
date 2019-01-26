@@ -1,55 +1,55 @@
 fileFormatVersion: 2
-guid: c3333cc4a5fddbb4cbe246cec0bf0316
+guid: 4d56ba636109232459889605c0fb2694
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Arm1.L
-    100002: Arm1.R
-    100004: Arm2.L
-    100006: Arm2.R
-    100008: Armature
-    100010: Chest
-    100012: Cube
-    100014: Foot.L
-    100016: Foot.R
-    100018: Hand.L
-    100020: Hand.R
-    100022: Head
-    100024: //RootNode
-    100026: Leg1.L
-    100028: Leg1.R
-    100030: Leg2.L
-    100032: Leg2.R
-    100034: Torso
-    400000: Arm1.L
-    400002: Arm1.R
-    400004: Arm2.L
-    400006: Arm2.R
-    400008: Armature
-    400010: Chest
-    400012: Cube
-    400014: Foot.L
-    400016: Foot.R
-    400018: Hand.L
-    400020: Hand.R
-    400022: Head
-    400024: //RootNode
-    400026: Leg1.L
-    400028: Leg1.R
-    400030: Leg2.L
-    400032: Leg2.R
-    400034: Torso
-    2100000: Material.003
-    2100002: Material.002
-    2100004: Material.001
-    2100006: Material.006
-    2100008: Material
-    2100010: Material.004
-    2100012: Material.005
+    100000: Armature
+    100002: BackLeg1.L
+    100004: BackLeg1.R
+    100006: BackLeg2.L
+    100008: BackLeg2.R
+    100010: BackLeg3.L
+    100012: BackLeg3.R
+    100014: Bone
+    100016: Bone.001
+    100018: Bone.002
+    100020: Bone.003
+    100022: Bone.004
+    100024: Bone.005
+    100026: Cube
+    100028: FrontLeg1.L
+    100030: FrontLeg1.R
+    100032: FrontLeg2.L
+    100034: FrontLeg2.R
+    100036: FrontLeg3.L
+    100038: FrontLeg3.R
+    100040: //RootNode
+    400000: Armature
+    400002: BackLeg1.L
+    400004: BackLeg1.R
+    400006: BackLeg2.L
+    400008: BackLeg2.R
+    400010: BackLeg3.L
+    400012: BackLeg3.R
+    400014: Bone
+    400016: Bone.001
+    400018: Bone.002
+    400020: Bone.003
+    400022: Bone.004
+    400024: Bone.005
+    400026: Cube
+    400028: FrontLeg1.L
+    400030: FrontLeg1.R
+    400032: FrontLeg2.L
+    400034: FrontLeg2.R
+    400036: FrontLeg3.L
+    400038: FrontLeg3.R
+    400040: //RootNode
+    2100000: Material
+    2100002: Material.001
     4300000: Cube
-    7400000: Armature|Bow
-    7400002: Armature|Idle
-    7400004: Armature|Walk
+    7400000: Armature|ArmatureAction
+    7400002: Armature|ArmatureAction.001
     9500000: //RootNode
     13700000: Cube
   externalObjects: {}

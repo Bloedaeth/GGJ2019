@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 321824e1cdfe4cf4498dd8e6ead1e91e
+guid: 69b82f7bb4240504182deeecb1e2af59
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -105,6 +105,10 @@ ModelImporter:
     2100006: DragonPupilColour
     2100008: DragonIrisColour
     4300000: DragonBody
+    7400000: ArmatureAction
+    7400002: ArmatureAction.001
+    7400004: Armature|ArmatureAction
+    7400006: Armature|ArmatureAction.001
     9500000: //RootNode
     13700000: DragonBody
   externalObjects: {}
