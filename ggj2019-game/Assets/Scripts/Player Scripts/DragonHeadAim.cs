@@ -18,14 +18,21 @@ public class DragonHeadAim : MonoBehaviour
     void LateUpdate()
     {
         Vector2 cursor = GetCursor();
-        Target = new Vector3(cursor.x, cursor.y,   transform.position.z);
-        Head.transform.LookAt(Target);
-        //Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
-        Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
-        Debug.DrawRay(Head.transform.position, Target, Color.red);
+        Target = new Vector3(cursor.x, cursor.y, transform.position.z);
+        Debug.Log("MousePos: " + Input.mousePosition);
+        Debug.Log("Cursor: " + cursor);
+        Debug.Log("Head: " + Head.transform.position);
+        Debug.Log("Target: " + Target);
+        //Head.transform.LookAt(-Target);
 
+        Head.transform.forward = -(Target - Head.transform.position).normalized;
+        Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x, 0, Head.transform.rotation.z);
+        //Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
+        //Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
+        Debug.DrawLine(Head.transform.position, Target, Color.red);
+        
         //Make body face
-        if (Target.x > transform.position.x)
+        if (Target.x < transform.position.x)
         {
             //Look left
             transform.rotation = Quaternion.Euler(Vector3.up * 270);
@@ -39,21 +46,21 @@ public class DragonHeadAim : MonoBehaviour
 
     Vector2 GetCursor()
     {
-        Vector2 cursor = 
+        Vector2 cursor =
             Camera.main.ScreenToWorldPoint
             (
                 new Vector3
                 (
-                    Camera.main.pixelWidth - Input.mousePosition.x,
-                    Camera.main.pixelHeight - Input.mousePosition.y, 
+                    /*Camera.main.pixelWidth -*/ Input.mousePosition.x,
+                    /*Camera.main.pixelHeight -*/ Input.mousePosition.y,
                     Vector3.Distance
                     (
-                        Camera.main.transform.position, 
-                        transform.position
+                        Camera.main.transform.position,
+                        Head.transform.position
                     )
                 )
             );
-        //var direction = (new Vector2(Head.transform.position.x, Head.transform.position.y) - cursor);
+        var direction = (new Vector2(Head.transform.position.x, Head.transform.position.y) - cursor);
         return cursor;
     }
 }
