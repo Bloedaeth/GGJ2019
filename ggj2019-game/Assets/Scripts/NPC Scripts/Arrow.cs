@@ -10,7 +10,7 @@ public class Arrow : MonoBehaviour
     public void Shoot(Transform dragonPosition, Human human)
     {
         //GameObject arrow = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        transform.position = new Vector3(human.transform.position.x, human.transform.position.y, human.transform.position.z);
+        transform.position = new Vector3(human.transform.position.x, human.transform.position.y+1, human.transform.position.z);
         //transform.rotation = Quaternion.FromToRotation(Vector3.up, Vector3.forward   ) * Quaternion.LookRotation((dragonPosition.position - transform.position).normalized);
         var direction = (dragonPosition.position - transform.position).normalized;
         if (dragonPosition.position.y <=7)
@@ -33,6 +33,6 @@ public class Arrow : MonoBehaviour
     }
     private void Update()
     {
-        transform.Rotate(Vector3.forward, -25 * Time.deltaTime);
+        transform.Rotate(Vector3.forward, 25 * Time.deltaTime);
     }
 }
