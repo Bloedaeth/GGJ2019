@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bite : MonoBehaviour
 {
-    Collider mouthCollider; //The area in which biting will work
+    public Collider mouthCollider; //The area in which biting will work
     public GameObject GrabbedItem; 
     List<GameObject> swallowedObjects = new List<GameObject>();
     DragonGrowth dragonGrowth;
@@ -126,6 +126,7 @@ public class Bite : MonoBehaviour
     void Crunch(GameObject other)
     {
         other.GetComponent<Health>().Damage(biteDamage);
+        Debug.Log("Cruched for " + biteDamage + " damage.");
         //TODO allow eating alive if big enough
     }
 
@@ -170,8 +171,17 @@ public class Bite : MonoBehaviour
         if (other.GetComponent<Food>() != null)
         {
             Digest(other.GetComponent<Food>());
+            Destroy(other);
         }
 
+        if (other.transform.tag == "Treasure")
+        {
+            swallowedObjects.Add(other);
+            other.gameObject.SetActive(false);
+        }
+
+        //TODO allow eating in one bite, and ingesting drops therefore
+        /*
         GameObject otherDrop = null;
         if (other.GetComponent<Death>() != null)
         {
@@ -188,7 +198,8 @@ public class Bite : MonoBehaviour
         {
             swallowedObjects.Add(Instantiate(otherDrop));
             otherDrop.gameObject.SetActive(false);
-        }        
+        }      */  
+
     }
 
     void Digest(Food food)
