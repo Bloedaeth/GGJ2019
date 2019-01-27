@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3858957322632499804}
   - component: {fileID: 3858957322632499807}
   m_Layer: 0
-  m_Name: EntitySpawner
+  m_Name: StaticSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,8 +56,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3858957322632499806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7366064cfecea1e42b310b3622d8f1e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 13492bee07d152d45ba08dba0f5fd682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxRange: 20
-  homePoint: {fileID: 0}
+  maxRange: 0
+  maxDistanceForSpawning: 150
+  timeBetweenSpawns: 7
