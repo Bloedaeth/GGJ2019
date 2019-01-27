@@ -1,43 +1,63 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-[RequireComponent(typeof(ObjectPooler))]
 public class EntitySpawner : MonoBehaviour
 {
+    public GameObject entity;
+    [Tooltip("Maximum amount of entities in game at any given time")]
+    public int maxEntities;
     [Tooltip("Maximum range from the player entites will spawn")]
     public float maxRange;
-
-	private ObjectPooler entityPool;
-	private float dist;
+    public GameObject spawnPoint;
+    
+    private float dist;
 
     [Space]
-    public GameObject homePoint;
-	
+    public GameObject player;
+
+    public int curEntities;
+    public List<GameObject> entities = new List<GameObject>();
     private bool side;
 
-	private void Awake()
-	{
-		entityPool = GetComponent<ObjectPooler>();
-	}
+    void Update()
+    {
+        curEntities = entities.Count;    
+
+        if (curEntities < maxEntities){
+            Spawn();
+        }
+
+        // Debug
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            RemoveEntity(0);
+        }
+    }
 
     private void Spawn()
     {
-        dist = Random.Range(0, maxRange);
+        dist = spawnPoint.transform.position.x + Random.Range(0, maxRange);
 
-		GameObject entity = entityPool.GetPooledObject();
-		if(entity == null)
-			return;
-
-		if(side)
+        if (side)
         {
-			entity.transform.position = new Vector3(homePoint.transform.position.x + dist, 0, 0);
-			entity.SetActive(true);
-			side = !side;
+            GameObject o = Instantiate(entity, new Vector3(player.transform.position.x + dist, 0, 0), Quaternion.identity);
+            entities.Add(o);
+            side = !side;
         }
         else
         {
-			entity.transform.position = new Vector3(homePoint.transform.position.x - dist, 0, 0);
-			entity.SetActive(true);
-			side = !side;
+            GameObject o = Instantiate(entity, new Vector3(player.transform.position.x - dist, 0, 0), Quaternion.identity);
+            entities.Add(o);
+            side = !side;
         }
     }
+
+    private void RemoveEntity(int entityIndex) 
+    {
+        entities.Remove(entities[entityIndex]);
+        Destroy(entities[entityIndex]);
+    }
+
+
 }
