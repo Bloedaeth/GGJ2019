@@ -6,15 +6,15 @@ using System.Linq;
 
 public class LevelManager : MonoBehaviour
 {
-    public float loadLevelAfter;
+    //public float loadLevelAfter;
 
     private static LevelManager instance;
 
     private AsyncOperation operation;
-    [SerializeField] private GameObject loadingScreen;
-    private Slider progressSlider;
-    private Text progressText;
-    private GameObject anyKeyToContinue;
+    //[SerializeField] private GameObject loadingScreen;
+    //private Slider progressSlider;
+    //private Text progressText;
+    //private GameObject anyKeyToContinue;
 
     private void Awake()
     {
@@ -30,8 +30,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-        if(SceneManager.GetActiveScene().name == "Splash Screen")
-            Invoke("LoadNextLevel", loadLevelAfter);
+        //if(SceneManager.GetActiveScene().name == "Splash Screen")
+        //    Invoke("LoadNextLevel", loadLevelAfter);
     }
 
     //private void SceneManager_SceneLoaded(Scene scene, LoadSceneMode mode)
@@ -54,12 +54,12 @@ public class LevelManager : MonoBehaviour
     //    }
     //}
 
-    public void LoadLevel(string levelName) { SceneManager.LoadScene(levelName); }
-    public void LoadLevel(int sceneIndex) { SceneManager.LoadScene(sceneIndex); }
-    public void LoadNextLevel() { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); }
+    public void LoadLevel(string levelName, LoadSceneMode mode = LoadSceneMode.Single) { SceneManager.LoadScene(levelName, mode); }
+    public void LoadLevel(int sceneIndex, LoadSceneMode mode = LoadSceneMode.Single) { SceneManager.LoadScene(sceneIndex, mode); }
+    public void LoadNextLevel(LoadSceneMode mode = LoadSceneMode.Single) { SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, mode); }
 
-    public void BtnLoadLevelAsync(string levelName) { FindObjectOfType<LevelManager>().LoadLevelAsync(levelName); }
-    public void BtnLoadLevelAsync(int sceneIndex) { FindObjectOfType<LevelManager>().LoadLevelAsync(sceneIndex); }
+    public void BtnLoadLevelAsync(string levelName, LoadSceneMode mode = LoadSceneMode.Single) { FindObjectOfType<LevelManager>().LoadLevelAsync(levelName, mode); }
+    public void BtnLoadLevelAsync(int sceneIndex, LoadSceneMode mode = LoadSceneMode.Single) { FindObjectOfType<LevelManager>().LoadLevelAsync(sceneIndex, mode); }
 
     public void ReturnToMenu(string menu)
     {
@@ -67,23 +67,23 @@ public class LevelManager : MonoBehaviour
         LoadLevel(menu);
     }
 
-    public void LoadLevelAsync(string levelName)
+    public void LoadLevelAsync(string levelName, LoadSceneMode mode = LoadSceneMode.Single)
     {
         //SilenceSounds();
-        operation = SceneManager.LoadSceneAsync(levelName);
-        StartCoroutine(UpdateSlider());
+        operation = SceneManager.LoadSceneAsync(levelName, mode);
+        //StartCoroutine(UpdateSlider());
     }
 
-    public void LoadLevelAsync(int sceneIndex)
+    public void LoadLevelAsync(int sceneIndex, LoadSceneMode mode = LoadSceneMode.Single)
     {
         //SilenceSounds();
-        operation = SceneManager.LoadSceneAsync(sceneIndex);
-        StartCoroutine(UpdateSlider());
+        operation = SceneManager.LoadSceneAsync(sceneIndex, mode);
+        //StartCoroutine(UpdateSlider());
     }
 
-    public void LoadNextLevelAsync()
+    public void LoadNextLevelAsync(LoadSceneMode mode = LoadSceneMode.Single)
     {
-        LoadLevelAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        LoadLevelAsync(SceneManager.GetActiveScene().buildIndex + 1, mode);
     }
     
     public void QuitGame() { Application.Quit(); }
@@ -100,22 +100,22 @@ public class LevelManager : MonoBehaviour
     //    sm.SetGameSoundVolume(0);
     //}
 
-    private IEnumerator UpdateSlider()
-    {
-        progressSlider.value = progressSlider.minValue;
-        operation.allowSceneActivation = false;
-        loadingScreen.SetActive(true);
-        while(progressSlider.value < progressSlider.maxValue)
-        {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
+    //private IEnumerator UpdateSlider()
+    //{
+    //    progressSlider.value = progressSlider.minValue;
+    //    operation.allowSceneActivation = false;
+    //    loadingScreen.SetActive(true);
+    //    while(progressSlider.value < progressSlider.maxValue)
+    //    {
+    //        float progress = Mathf.Clamp01(operation.progress / .9f);
 
-            progressSlider.value = progress;
-            progressText.text = progress * 100f + "%";
+    //        progressSlider.value = progress;
+    //        progressText.text = progress * 100f + "%";
 
-            yield return new WaitForEndOfFrame();
-        }
+    //        yield return new WaitForEndOfFrame();
+    //    }
 
-        anyKeyToContinue.SetActive(true);
-        yield return null;
-    }
+    //    anyKeyToContinue.SetActive(true);
+    //    yield return null;
+    //}
 }
