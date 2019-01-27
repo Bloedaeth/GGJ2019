@@ -14,6 +14,10 @@ public class DragonFire : MonoBehaviour
 
     [SerializeField] private Animator anim;
 
+    public float fireDamage;
+    public float damageRate;
+    private float damageTimer;
+
     private void Awake()
     {
         fireKey = GetComponent<DragonControls>().breathFireControl;
@@ -42,6 +46,16 @@ public class DragonFire : MonoBehaviour
             firePrefab.GetComponent<ParticleSystem>().Stop();
             source.loop = false;
             source.Stop();
+        } 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        damageTimer = Time.time;
+        if (other.transform.tag == "Enemy" && damageTimer < damageRate)
+        {
+            damageTimer = 0;
+            other.GetComponent<Health>().Damage(fireDamage);
         }
     }
 }
