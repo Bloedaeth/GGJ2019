@@ -23,7 +23,8 @@ public class Human : MonoBehaviour
 
 		float direction = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
 		moveDirection = Vector3.forward * direction;
-	}
+        dragon = FindObjectOfType<DragonControls>().gameObject;
+    }
 
 	private void Update()
 	{

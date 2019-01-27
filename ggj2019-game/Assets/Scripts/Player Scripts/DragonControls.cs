@@ -14,6 +14,7 @@ public class DragonControls : MonoBehaviour
         GetComponent<Bite>().enabled = state;
         GetComponent<DragonMovement>().enabled = state;
         GetComponent<Rigidbody>().useGravity = state;
+        GetComponent<BoxCollider>().enabled = state;
         Debug.Log("Controls set to" + state);
     }
 
