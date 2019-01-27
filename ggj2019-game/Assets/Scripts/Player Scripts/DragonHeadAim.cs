@@ -22,16 +22,16 @@ public class DragonHeadAim : MonoBehaviour
         Head.transform.LookAt(Target);
         //Head.transform.rotation = Quaternion.Euler(-90, Head.transform.rotation.y, Head.transform.rotation.z);
 
-        Debug.Log("MousePos: " + Input.mousePosition);
-        Debug.Log("Cursor: " + cursor);
-        Debug.Log("Head: " + Head.transform.position);
-        Debug.Log("Target: " + Target);
+        //Debug.Log("MousePos: " + Input.mousePosition);
+        //Debug.Log("Cursor: " + cursor);
+        //Debug.Log("Head: " + Head.transform.position);
+        //Debug.Log("Target: " + Target);
         //Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
         //Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
         Debug.DrawRay(Head.transform.position, Target, Color.red);
 
         //Make body face
-        if (Target.x > transform.position.x)
+        if (Target.x > transform.position.x && GameObject.Find("Egg") == null) 
         {
             //Look left
             transform.rotation = Quaternion.Euler(Vector3.up * 270);
@@ -41,25 +41,14 @@ public class DragonHeadAim : MonoBehaviour
             //Look right
             transform.rotation = Quaternion.Euler(Vector3.up * 90);
         }
+
+
+        //Not sure what these two lines are, am guessing we established they dont work
+        //Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
+        //Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
+        Debug.DrawLine(Head.transform.position, Target, Color.red);
+        
     }
-
-		//Not sure what these two lines are, am guessing we established they dont work
-		//Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
-		//Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
-		Debug.DrawLine(Head.transform.position, Target, Color.red);
-
-		//Make body face
-		if(Target.x < transform.position.x)
-		{
-			//Look left
-			transform.rotation = Quaternion.Euler(Vector3.up * 270);
-		}
-		else
-		{
-			//Look right
-			transform.rotation = Quaternion.Euler(Vector3.up * 90);
-		}
-	}
 
     Vector2 GetCursor()
     {

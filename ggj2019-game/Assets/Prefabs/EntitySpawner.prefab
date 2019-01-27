@@ -60,5 +60,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRange: 20
-  spawnPoint: {fileID: 0}
-  player: {fileID: 0}
+  homePoint: {fileID: 0}
