@@ -18,10 +18,11 @@ public class DragonHeadAim : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        Vector2 cursor = GetCursor();
+        Target = new Vector3(cursor.x, cursor.y, transform.position.z);
         if (active)
         {
-            Vector2 cursor = GetCursor();
-            Target = new Vector3(cursor.x, cursor.y, transform.position.z);
+            
             Head.transform.LookAt(Target);
             //Head.transform.rotation = Quaternion.Euler(-90, Head.transform.rotation.y, Head.transform.rotation.z);
 
