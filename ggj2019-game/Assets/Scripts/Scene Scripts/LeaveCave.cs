@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class LeaveCave : MonoBehaviour
 {
-    
+    LevelManager manager;
+
+    private void Start()
+    {
+        manager = FindObjectOfType<LevelManager>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
         {
             //TODO change scene to overworld
             Debug.Log("Loading zone hit");
+            manager.LoadLevel("Main");
         }
     }
 }
