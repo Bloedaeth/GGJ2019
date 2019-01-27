@@ -27,12 +27,6 @@ public class EntitySpawner : MonoBehaviour
         if (curEntities < maxEntities){
             Spawn();
         }
-
-        // Debug
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            RemoveEntity(0);
-        }
     }
 
     private void Spawn()
@@ -52,12 +46,4 @@ public class EntitySpawner : MonoBehaviour
             side = !side;
         }
     }
-
-    private void RemoveEntity(int entityIndex) 
-    {
-        entities.Remove(entities[entityIndex]);
-        Destroy(entities[entityIndex]);
-    }
-
-
 }
