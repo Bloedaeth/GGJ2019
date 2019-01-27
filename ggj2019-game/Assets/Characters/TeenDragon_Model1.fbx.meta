@@ -1,36 +1,36 @@
 fileFormatVersion: 2
-guid: 61449281f4d5113458f5a9e60a1ec92b
+guid: e2dcb9736a0ddf8459c1278e8a70da90
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Armature
-    100002: //RootNode
-    100004: Back_Foot.L
-    100006: Back_Foot.R
-    100008: Back_Lower_Leg.L
-    100010: Back_Lower_Leg.R
-    100012: Back_Toe.L
-    100014: Back_Toe.R
-    100016: Back_Upper_Leg.L
-    100018: Back_Upper_Leg.R
-    100020: DragonBody
-    100022: Front_Foot.L
-    100024: Front_Foot.R
-    100026: Front_Lower_Leg.L
-    100028: Front_Lower_Leg.R
-    100030: Front_Upper_Leg.L
-    100032: Front_Upper_Leg.R
-    100034: Head
-    100036: Lower_Body
-    100038: Lower_Jaw
-    100040: Lower_Neck
-    100042: Middle_Body
-    100044: Middle_Neck
-    100046: Tail_1
-    100048: Tail_2
-    100050: Tail_3
-    100052: Tail_4
-    100054: Tail_Tip
+    100002: Back_Foot.L
+    100004: Back_Foot.R
+    100006: Back_Lower_Leg.L
+    100008: Back_Lower_Leg.R
+    100010: Back_Toe.L
+    100012: Back_Toe.R
+    100014: Back_Upper_Leg.L
+    100016: Back_Upper_Leg.R
+    100018: DragonBody
+    100020: Front_Foot.L
+    100022: Front_Foot.R
+    100024: Front_Lower_Leg.L
+    100026: Front_Lower_Leg.R
+    100028: Front_Upper_Leg.L
+    100030: Front_Upper_Leg.R
+    100032: Head
+    100034: Lower_Body
+    100036: Lower_Jaw
+    100038: Lower_Neck
+    100040: Middle_Body
+    100042: Middle_Neck
+    100044: Tail_1
+    100046: Tail_2
+    100048: Tail_3
+    100050: Tail_4
+    100052: Tail_Tip
+    100054: //RootNode
     100056: Upper_Body
     100058: Upper_Jaw
     100060: Upper_Neck
@@ -41,33 +41,33 @@ ModelImporter:
     100070: Wing_Second_Finger.L
     100072: Wing_Second_Finger.R
     400000: Armature
-    400002: //RootNode
-    400004: Back_Foot.L
-    400006: Back_Foot.R
-    400008: Back_Lower_Leg.L
-    400010: Back_Lower_Leg.R
-    400012: Back_Toe.L
-    400014: Back_Toe.R
-    400016: Back_Upper_Leg.L
-    400018: Back_Upper_Leg.R
-    400020: DragonBody
-    400022: Front_Foot.L
-    400024: Front_Foot.R
-    400026: Front_Lower_Leg.L
-    400028: Front_Lower_Leg.R
-    400030: Front_Upper_Leg.L
-    400032: Front_Upper_Leg.R
-    400034: Head
-    400036: Lower_Body
-    400038: Lower_Jaw
-    400040: Lower_Neck
-    400042: Middle_Body
-    400044: Middle_Neck
-    400046: Tail_1
-    400048: Tail_2
-    400050: Tail_3
-    400052: Tail_4
-    400054: Tail_Tip
+    400002: Back_Foot.L
+    400004: Back_Foot.R
+    400006: Back_Lower_Leg.L
+    400008: Back_Lower_Leg.R
+    400010: Back_Toe.L
+    400012: Back_Toe.R
+    400014: Back_Upper_Leg.L
+    400016: Back_Upper_Leg.R
+    400018: DragonBody
+    400020: Front_Foot.L
+    400022: Front_Foot.R
+    400024: Front_Lower_Leg.L
+    400026: Front_Lower_Leg.R
+    400028: Front_Upper_Leg.L
+    400030: Front_Upper_Leg.R
+    400032: Head
+    400034: Lower_Body
+    400036: Lower_Jaw
+    400038: Lower_Neck
+    400040: Middle_Body
+    400042: Middle_Neck
+    400044: Tail_1
+    400046: Tail_2
+    400048: Tail_3
+    400050: Tail_4
+    400052: Tail_Tip
+    400054: //RootNode
     400056: Upper_Body
     400058: Upper_Jaw
     400060: Upper_Neck
@@ -82,39 +82,17 @@ ModelImporter:
     2100004: DragonMouthColour
     2100006: DragonPupilColour
     2100008: DragonIrisColour
+    2100010: DragonTeethColour
     4300000: DragonBody
     7400000: ArmatureAction
     7400002: ArmatureAction.001
-    7400004: Armature|ArmatureAction
-    7400006: Armature|ArmatureAction.001
+    7400004: ArmatureAction.003
+    7400006: Armature|ArmatureAction
+    7400008: Armature|ArmatureAction.001
+    7400010: Armature|ArmatureAction.003
     9500000: //RootNode
     13700000: DragonBody
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DragonBellyColour
-    second: {fileID: 2100000, guid: 35b9d4da38563dd478606f154a62c965, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DragonBodyColour
-    second: {fileID: 2100000, guid: 8c75600365fb2454099b92bcac62a253, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DragonIrisColour
-    second: {fileID: 2100000, guid: 8515badb5b052914891d712104644cb9, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DragonMouthColour
-    second: {fileID: 2100000, guid: e8877089b5ac7c847a8675d2df9bde69, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: DragonPupilColour
-    second: {fileID: 2100000, guid: 39629bacf88c5a440b4d913de4b84db3, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

@@ -365,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 3858957322632499806, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
       propertyPath: m_Name
-      value: EntitySpawner
+      value: StaticSpawner
       objectReference: {fileID: 0}
     - target: {fileID: 3858957322632499805, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
