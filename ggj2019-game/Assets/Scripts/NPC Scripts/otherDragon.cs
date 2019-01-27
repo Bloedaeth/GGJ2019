@@ -38,7 +38,9 @@ public class otherDragon : MonoBehaviour
 
     void LayEgg()
     {
-        Instantiate(baby_egg, transform.position, Quaternion.LookRotation(Vector3.forward, Vector3.up));
+        Vector3 egg_pos = transform.position;
+        egg_pos.y = 0.5f;
+        Instantiate(baby_egg, egg_pos, Quaternion.LookRotation(Vector3.forward, Vector3.up));
         treasure -= 10;
         flyAway = true;
     }
@@ -51,6 +53,12 @@ public class otherDragon : MonoBehaviour
             treasure++;
             Debug.Log(treasure);
         }
+
+        if (other.tag == "Player")
+        {
+            LayEgg();
+        }
+
     }
 
 }
