@@ -17,13 +17,16 @@ public class Human : MonoBehaviour
     private float timeToReload = 0f;
 	private void Awake()
 	{
+
+
         arrowPool = FindObjectOfType<ObjectPooler>();
 
 		timeToMove = Random.Range(1f, 3.5f);
 
 		float direction = Random.Range(0f, 1f) < 0.5 ? -1 : 1;
 		moveDirection = Vector3.forward * direction;
-	}
+        dragon = FindObjectOfType<DragonControls>().gameObject;
+    }
 
 	private void Update()
 	{
