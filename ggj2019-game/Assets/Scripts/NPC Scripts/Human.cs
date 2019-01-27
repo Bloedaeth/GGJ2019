@@ -17,6 +17,8 @@ public class Human : MonoBehaviour
     private float timeToReload = 0f;
 	private void Awake()
 	{
+
+
         arrowPool = FindObjectOfType<ObjectPooler>();
 
 		timeToMove = Random.Range(1f, 3.5f);

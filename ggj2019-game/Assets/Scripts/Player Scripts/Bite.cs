@@ -78,7 +78,7 @@ public class Bite : MonoBehaviour
     //Figure out what behaviour to perform out of Grab(), Swallow(), Crunch()
     void Chomp(GameObject other)
     {
-        Debug.Log("Bit " + other);
+        //Debug.Log("Bit " + other);
         //Is the mouth full though?
         if(GrabbedItem != null)
         {

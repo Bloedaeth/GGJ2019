@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2996272522729457804}
   - component: {fileID: 1123429992353007584}
   - component: {fileID: 1849040810869963236}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lizard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -132,6 +132,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lizard_Mdl
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803131729394252811, guid: 039aeb1309b87e943ab796f539372009,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9158601887354432878, guid: 039aeb1309b87e943ab796f539372009,
         type: 3}
