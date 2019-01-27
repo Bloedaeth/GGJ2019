@@ -7,6 +7,7 @@ public class Arrow : MonoBehaviour
     private Rigidbody rb;
     private float height;
     private float spinDirection;
+    public float Damage = 100;
     // Start is called before the first frame update
     public void Shoot(Transform dragonPosition, Human human)
     {
@@ -46,5 +47,15 @@ public class Arrow : MonoBehaviour
     private void Update()
     {
         transform.Rotate(Vector3.forward, 25 * spinDirection * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Health health = collision.gameObject.GetComponent<Health>();
+        if (health != null)
+        {
+            health.Damage(Damage);
+        }
+        Destroy(this.gameObject);
     }
 }
