@@ -28,7 +28,12 @@ public class Human : MonoBehaviour
         dragon = FindObjectOfType<DragonControls>().gameObject;
     }
 
-	private void Update()
+    private void Start()
+    {
+        dragon = FindObjectOfType<DragonControls>().gameObject;
+    }
+
+    private void Update()
 	{
 
 		timeToMove -= Time.deltaTime;

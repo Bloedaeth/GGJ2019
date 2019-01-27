@@ -189,41 +189,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326992, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326954, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326962, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 4812288584195704818, guid: 248b4a43da1d3994bb11bb65fc15679e,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: edd61bc756b960847ba0c630b5d6cda1, type: 2}
-    - target: {fileID: 4812288584188326948, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326968, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326972, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 4812288584199895346, guid: 248b4a43da1d3994bb11bb65fc15679e,
         type: 3}
       propertyPath: m_Bones.Array.data[0]
@@ -304,66 +274,6 @@ PrefabInstance:
       propertyPath: m_RootBone
       value: 
       objectReference: {fileID: 1853330705417288143}
-    - target: {fileID: 4812288584188326946, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326952, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326958, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326960, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326966, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326974, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326944, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326956, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326964, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326970, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326994, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4812288584188326950, guid: 248b4a43da1d3994bb11bb65fc15679e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 248b4a43da1d3994bb11bb65fc15679e, type: 3}
 --- !u!4 &6661834442012413350 stripped
