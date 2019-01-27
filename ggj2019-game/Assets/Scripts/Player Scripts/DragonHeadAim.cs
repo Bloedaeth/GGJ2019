@@ -19,14 +19,29 @@ public class DragonHeadAim : MonoBehaviour
     {
         Vector2 cursor = GetCursor();
         Target = new Vector3(cursor.x, cursor.y, transform.position.z);
+        Head.transform.LookAt(Target);
+        //Head.transform.rotation = Quaternion.Euler(-90, Head.transform.rotation.y, Head.transform.rotation.z);
+
         Debug.Log("MousePos: " + Input.mousePosition);
         Debug.Log("Cursor: " + cursor);
         Debug.Log("Head: " + Head.transform.position);
         Debug.Log("Target: " + Target);
-		//Head.transform.LookAt(-Target); //doesnt work (weird, thought it would act the same as below)
+        //Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
+        //Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
+        Debug.DrawRay(Head.transform.position, Target, Color.red);
 
-		Head.transform.forward = -(Target - Head.transform.position).normalized;
-		//Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x, 0, Head.transform.rotation.z); //doesnt help, breaks it further
+        //Make body face
+        if (Target.x > transform.position.x)
+        {
+            //Look left
+            transform.rotation = Quaternion.Euler(Vector3.up * 270);
+        }
+        else
+        {
+            //Look right
+            transform.rotation = Quaternion.Euler(Vector3.up * 90);
+        }
+    }
 
 		//Not sure what these two lines are, am guessing we established they dont work
 		//Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
@@ -54,16 +69,18 @@ public class DragonHeadAim : MonoBehaviour
                 new Vector3
                 (
 					//Inverting it didnt help, broke more stuff
-                    /*Camera.main.pixelWidth -*/ Input.mousePosition.x,
-                    /*Camera.main.pixelHeight -*/ Input.mousePosition.y,
+                    Camera.main.pixelWidth - Input.mousePosition.x,
+                    Camera.main.pixelHeight - Input.mousePosition.y,
                     Vector3.Distance
                     (
                         Camera.main.transform.position,
-                        Head.transform.position
+                        transform.position
                     )
                 )
             );
-        var direction = (new Vector2(Head.transform.position.x, Head.transform.position.y) - cursor);
+        cursor.y -= 6;
+        //var direction = (new Vector2(Head.transform.position.x, Head.transform.position.y) - cursor);
         return cursor;
     }
 }
+
