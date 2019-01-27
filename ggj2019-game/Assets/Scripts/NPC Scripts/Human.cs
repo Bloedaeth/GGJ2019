@@ -19,7 +19,7 @@ public class Human : MonoBehaviour
 	{
 
 
-        arrowPool = FindObjectOfType<ObjectPooler>();
+        arrowPool = GameObject.Find("arrowPooler").GetComponent<ObjectPooler>();
 
 		timeToMove = Random.Range(1f, 3.5f);
 
