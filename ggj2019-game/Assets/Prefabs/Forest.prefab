@@ -2354,7 +2354,7 @@ PrefabInstance:
     - target: {fileID: 3858957322632499806, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
       propertyPath: m_Name
-      value: StaticSpawner
+      value: Squirrel spawner
       objectReference: {fileID: 0}
     - target: {fileID: 3858957322632499805, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
@@ -2369,7 +2369,7 @@ PrefabInstance:
     - target: {fileID: 3858957322632499805, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 3858957322632499805, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
@@ -2417,6 +2417,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6589035145096855278, guid: e9ad40b54bd292f4eba687412632ac43,
         type: 3}
+    - target: {fileID: 3858957322632499807, guid: 4c2d8e090eb72d643abd3056fa939ee6,
+        type: 3}
+      propertyPath: maxRange
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2d8e090eb72d643abd3056fa939ee6, type: 3}
 --- !u!4 &2136834289719046775 stripped
@@ -5435,7 +5440,7 @@ PrefabInstance:
     - target: {fileID: 3858957322632499806, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
       propertyPath: m_Name
-      value: StaticSpawner (1)
+      value: Boar spawner
       objectReference: {fileID: 0}
     - target: {fileID: 3858957322632499805, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
@@ -5450,7 +5455,7 @@ PrefabInstance:
     - target: {fileID: 3858957322632499805, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 3858957322632499805, guid: 4c2d8e090eb72d643abd3056fa939ee6,
         type: 3}
@@ -5498,6 +5503,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7902553833658335821, guid: 84f15fdddf9124645b6573e794bbdf88,
         type: 3}
+    - target: {fileID: 3858957322632499807, guid: 4c2d8e090eb72d643abd3056fa939ee6,
+        type: 3}
+      propertyPath: maxRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3858957322632499807, guid: 4c2d8e090eb72d643abd3056fa939ee6,
+        type: 3}
+      propertyPath: timeBetweenSpawns
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c2d8e090eb72d643abd3056fa939ee6, type: 3}
 --- !u!4 &5951412015344780578 stripped

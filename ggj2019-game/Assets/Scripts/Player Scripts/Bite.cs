@@ -109,7 +109,7 @@ public class Bite : MonoBehaviour
         {
             //Alright, small enough to swallow? If not, is it small enough to grab?
             Rigidbody otherBody = other.GetComponent<Rigidbody>();
-            if(otherBody.mass < body.mass / 4)
+            if(true/*otherBody.mass < body.mass / 4*/)
             {
                 Swallow(other);
                 return;
