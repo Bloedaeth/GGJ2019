@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Limb
+  m_Name: Eye
   m_Shader: {fileID: 4800000, guid: e6710af2707b3224581038531eb4b2e5, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -77,5 +77,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.4245283, g: 0.24315515, b: 0.14217694, a: 1}
+    - _Color: {r: 0.08664116, g: 0.31132078, b: 0.087762125, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

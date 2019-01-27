@@ -7,8 +7,12 @@ public class DragonFire : MonoBehaviour
     public GameObject firePrefab;
     public AudioClip fireSound;
 
+    public GameObject jaw;
+
     private AudioSource source;
     private KeyCode fireKey;
+
+    [SerializeField] private Animator anim;
 
     private void Awake()
     {
@@ -26,15 +30,16 @@ public class DragonFire : MonoBehaviour
         }
         if (Input.GetKeyDown(fireKey))
         {
-            source.pitch = 0.2f;
-            source.loop = true;
-            
+            anim.SetInteger("Mouth", 1);
+
+            source.loop = true;   
             source.PlayOneShot(fireSound);
         }
         if (Input.GetKeyUp(fireKey))
         {
+            anim.SetInteger("Mouth", -1);
+
             firePrefab.GetComponent<ParticleSystem>().Stop();
-            source.pitch = 1f;
             source.loop = false;
             source.Stop();
         }
