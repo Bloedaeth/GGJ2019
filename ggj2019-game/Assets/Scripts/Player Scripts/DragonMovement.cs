@@ -20,9 +20,13 @@ public class DragonMovement : MonoBehaviour
     public AudioClip woosh;
     private AudioSource source;
 
+    public Animation runAnim;
+    private Animator anim;
+
     private void Awake()
     {
         source = GetComponent<AudioSource>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -38,21 +42,22 @@ public class DragonMovement : MonoBehaviour
 
     private void GetKeyPress() {
         
-        float v = Input.GetAxis("Horizontal");
+        float h = Input.GetAxis("Horizontal");
 
         // fly only when w pressed
         if (Input.GetKeyDown(flyKey) && canFly)
             Fly();
 
-        transform.position += new Vector3(v * moveSpeed * Time.deltaTime, 0, 0);
+        //anim.SetFloat("Speed", h < 0 ? -1 : 1);
+        anim.SetFloat("H", Mathf.Abs(h));
+
+        transform.position += new Vector3(h * moveSpeed * Time.deltaTime, 0, 0);
     }
 
     private void Fly() {
         rb.AddForce(Vector3.up * flyForce, ForceMode.Acceleration);
 
-        source.pitch = 0.25f;
         source.PlayOneShot(woosh, 0.3f);
-        source.pitch = 1;
         
         // TODO
         // add limit to fly ability
