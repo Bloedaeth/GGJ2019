@@ -67,7 +67,7 @@ public class DragonHeadAim : MonoBehaviour
                     )
                 )
             );
-        cursor.y -= 6;
+        cursor.y -= 0;
         //var direction = (new Vector2(Head.transform.position.x, Head.transform.position.y) - cursor);
         return cursor;
     }
