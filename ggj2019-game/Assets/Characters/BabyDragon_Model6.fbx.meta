@@ -89,7 +89,32 @@ ModelImporter:
     7400006: Armature|ArmatureAction.001
     9500000: //RootNode
     13700000: DragonBody
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DragonBellyColour
+    second: {fileID: 2100000, guid: 35b9d4da38563dd478606f154a62c965, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DragonBodyColour
+    second: {fileID: 2100000, guid: 8c75600365fb2454099b92bcac62a253, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DragonIrisColour
+    second: {fileID: 2100000, guid: 8515badb5b052914891d712104644cb9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DragonMouthColour
+    second: {fileID: 2100000, guid: e8877089b5ac7c847a8675d2df9bde69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: DragonPupilColour
+    second: {fileID: 2100000, guid: 39629bacf88c5a440b4d913de4b84db3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
