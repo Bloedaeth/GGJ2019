@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Boar : MonoBehaviour
 {
-	public GameObject dragon;
+	GameObject dragon;
 	//private Health health;
 
 		//Temporary variable for distance away the dragon is
@@ -17,7 +17,12 @@ public class Boar : MonoBehaviour
 
 	private Vector3 moveDirection;
 
-	private void Awake()
+    private void Start()
+    {
+        dragon = FindObjectOfType<DragonControls>().gameObject;
+    }
+
+    private void Awake()
 	{
 		timeToMove = Random.Range(1f, 3.5f);
 

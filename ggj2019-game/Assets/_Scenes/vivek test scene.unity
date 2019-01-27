@@ -268,7 +268,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &534669906
 MonoBehaviour:
@@ -335,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 7086806899407631086, guid: 6fe86907dc4a92a438d69415b2a613d0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7086806899407631086, guid: 6fe86907dc4a92a438d69415b2a613d0,
         type: 3}
@@ -383,13 +383,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7366064cfecea1e42b310b3622d8f1e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
   entity: {fileID: 0}
   maxEntities: 0
   maxRange: 0
   spawnPoint: {fileID: 0}
+  dist: 0
   player: {fileID: 0}
   curEntities: 0
   entities: []
+  side: 0
 --- !u!4 &1693617472
 Transform:
   m_ObjectHideFlags: 0
@@ -493,5 +511,5 @@ Transform:
   m_LocalScale: {x: 52.377, y: 0.13421, z: 6.3759}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

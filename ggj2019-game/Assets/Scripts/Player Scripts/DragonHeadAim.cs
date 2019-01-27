@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DragonHeadAim : MonoBehaviour
 {
+    public bool active;
     public Vector3 Target;
     public Vector3 Offset;
     Animator anim;
@@ -17,19 +18,21 @@ public class DragonHeadAim : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector2 cursor = GetCursor();
-        Target = new Vector3(cursor.x, cursor.y, transform.position.z);
-        Head.transform.LookAt(Target);
-        //Head.transform.rotation = Quaternion.Euler(-90, Head.transform.rotation.y, Head.transform.rotation.z);
+        if (active)
+        {
+            Vector2 cursor = GetCursor();
+            Target = new Vector3(cursor.x, cursor.y, transform.position.z);
+            Head.transform.LookAt(Target);
+            //Head.transform.rotation = Quaternion.Euler(-90, Head.transform.rotation.y, Head.transform.rotation.z);
 
-        //Debug.Log("MousePos: " + Input.mousePosition);
-        //Debug.Log("Cursor: " + cursor);
-        //Debug.Log("Head: " + Head.transform.position);
-        //Debug.Log("Target: " + Target);
-        //Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
-        //Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
-        Debug.DrawRay(Head.transform.position, Target, Color.red);
-
+            //Debug.Log("MousePos: " + Input.mousePosition);
+            //Debug.Log("Cursor: " + cursor);
+            //Debug.Log("Head: " + Head.transform.position);
+            //Debug.Log("Target: " + Target);
+            //Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
+            //Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
+            Debug.DrawRay(Head.transform.position, Target, Color.red);
+        }
         //Make body face
         if (Target.x > transform.position.x && GameObject.Find("Egg") == null) 
         {
@@ -67,7 +70,7 @@ public class DragonHeadAim : MonoBehaviour
                     )
                 )
             );
-        cursor.y -= 6;
+        cursor.y -= 0;
         //var direction = (new Vector2(Head.transform.position.x, Head.transform.position.y) - cursor);
         return cursor;
     }

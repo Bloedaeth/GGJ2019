@@ -7,6 +7,6 @@ public class LeaveCave : MonoBehaviour
 	private void OnTriggerEnter(Collider other)
     {
         if (other.transform.tag == "Player")
-            FindObjectOfType<LevelManager>().LoadLevelAsync("Main", LoadSceneMode.Additive);
+            FindObjectOfType<LevelManager>().LoadLevelAsync("Main"/*, LoadSceneMode.Additive*/); //Additive makes the cave stay in existance
     }
 }
