@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6069576969229658871}
   - component: {fileID: 2204818996724245344}
   - component: {fileID: 13982276556908723}
-  - component: {fileID: 6175459662960961942}
+  - component: {fileID: 2248933259888117386}
   m_Layer: 0
   m_Name: Meat
   m_TagString: Food
@@ -63,8 +63,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GrowthValue: 100
---- !u!64 &6175459662960961942
-MeshCollider:
+--- !u!65 &2248933259888117386
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -73,10 +73,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.4, y: 0.6, z: 1}
+  m_Center: {x: -0.4, y: 0.3, z: 0}
 --- !u!1001 &8708571702621085820
 PrefabInstance:
   m_ObjectHideFlags: 0
