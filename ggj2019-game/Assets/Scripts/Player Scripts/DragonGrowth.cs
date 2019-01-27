@@ -9,7 +9,7 @@ public class DragonGrowth : MonoBehaviour
     Vector3 maxScale; 
     Vector3 scale;
     int tier;
-    readonly float[] tierThresholds = { 0, 1500, 3000, 10000 }; //TODO placeholder values
+    readonly float[] tierThresholds = { 0, 2000, 5000, 8000 }; //TODO placeholder values
     readonly float[] armor = { 0, 0, 15, 50 }; //Flat reduction in damage taken for each tier //TODO placeholder values
     readonly float[] biteDamage = { 50, 100, 200, 400 };
     Health health;
