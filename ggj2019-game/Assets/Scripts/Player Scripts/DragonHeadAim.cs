@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DragonHeadAim : MonoBehaviour
 {
-    publicbool active;
+    public bool active;
     public Vector3 Target;
     public Vector3 Offset;
     Animator anim;
