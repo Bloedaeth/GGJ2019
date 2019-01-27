@@ -51,8 +51,8 @@ public class DragonFire : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        damageTimer = Time.time;
-        if (other.transform.tag == "Enemy" && damageTimer < damageRate)
+        damageTimer += Time.deltaTime;
+        if (other.transform.tag == "Enemy" && damageTimer > damageRate)
         {
             damageTimer = 0;
             other.GetComponent<Health>().Damage(fireDamage);
