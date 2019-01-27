@@ -19,7 +19,10 @@ public class Mouth : MonoBehaviour
 
     private void OnTriggerStay(Collider hit)
     {
-        if(hit.transform.tag == "Food" || hit.transform.tag == "Treasure" || hit.transform.tag == "Enemy")
-        bite.objectInMouth = hit.gameObject;
+        //Debug.Log(hit.transform.tag + "found in teeth:" + hit.gameObject);
+        if (hit.transform.tag == "Food" || hit.transform.tag == "Treasure" || hit.transform.tag == "Enemy")
+        {            
+            bite.objectInMouth = hit.gameObject;
+        }
     }
 }

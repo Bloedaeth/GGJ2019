@@ -9,7 +9,7 @@ public class otherDragon : MonoBehaviour
 
     private int treasure;
 
-    private bool aggressive;
+    //private bool aggressive;
 
     private bool flyAway;
 
@@ -18,7 +18,6 @@ public class otherDragon : MonoBehaviour
     void Start()
     {
         treasure = 0;
-        aggressive = false;
         flyAway = false;
     }
 
