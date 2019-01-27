@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 4962837289908850650}
   - component: {fileID: 6000802569786176229}
   - component: {fileID: 2942559814169133058}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Boar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
