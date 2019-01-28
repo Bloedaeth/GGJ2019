@@ -20,22 +20,20 @@ public class DragonHeadAim : MonoBehaviour
     {
         Vector2 cursor = GetCursor();
         Target = new Vector3(cursor.x, cursor.y, transform.position.z);
-        if (active)
+		if(active)
         {
-            
-            Head.transform.LookAt(Target);
-            //Head.transform.rotation = Quaternion.Euler(-90, Head.transform.rotation.y, Head.transform.rotation.z);
+			Vector2 direction = (Target - Head.transform.position).normalized;
+			float targetAngle = Mathf.Atan2(direction.y, Mathf.Abs(direction.x)) * Mathf.Rad2Deg;
 
-            //Debug.Log("MousePos: " + Input.mousePosition);
-            //Debug.Log("Cursor: " + cursor);
-            //Debug.Log("Head: " + Head.transform.position);
-            //Debug.Log("Target: " + Target);
-            //Head.transform.rotation = Quaternion.Euler(Head.transform.rotation.x - 57.84f, Head.transform.rotation.y + 32.48f, Head.transform.rotation.z - 55.6f);
-            //Head.transform.rotation = Head.transform.rotation * Quaternion.Euler(Offset);
-            Debug.DrawRay(Head.transform.position, Target, Color.red);
-        }
+			//Use local y axis due to weirdness with the axes somewhere in the hierarchy
+			float zRotation = targetAngle - Head.transform.localRotation.eulerAngles.y;
+			if(Target.x < transform.position.x) // Facing left
+				zRotation = -zRotation;
+
+			Head.transform.Rotate(new Vector3(0, 0, zRotation), Space.World);
+		}
         //Make body face
-        if (Target.x > transform.position.x && GameObject.Find("Egg") == null) 
+        if (Target.x < transform.position.x && GameObject.Find("Egg") == null) 
         {
             //Look left
             transform.rotation = Quaternion.Euler(Vector3.up * 270);
@@ -61,9 +59,8 @@ public class DragonHeadAim : MonoBehaviour
             (
                 new Vector3
                 (
-					//Inverting it didnt help, broke more stuff
-                    Camera.main.pixelWidth - Input.mousePosition.x,
-                    Camera.main.pixelHeight - Input.mousePosition.y,
+					Input.mousePosition.x,
+                    Input.mousePosition.y,
                     Vector3.Distance
                     (
                         Camera.main.transform.position,
@@ -71,8 +68,6 @@ public class DragonHeadAim : MonoBehaviour
                     )
                 )
             );
-        cursor.y -= 0;
-        //var direction = (new Vector2(Head.transform.position.x, Head.transform.position.y) - cursor);
         return cursor;
     }
 }

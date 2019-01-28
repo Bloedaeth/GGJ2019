@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -266,7 +266,7 @@ PrefabInstance:
     - target: {fileID: 5424710930355574370, guid: 8e9f625b93a909e46b4864f2fc26abe0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5424710930355574370, guid: 8e9f625b93a909e46b4864f2fc26abe0,
         type: 3}
@@ -335,7 +335,7 @@ PrefabInstance:
     - target: {fileID: 3145816048830313318, guid: e7b8b2c07dea85646b8508fe1b61970c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3145816048830313318, guid: e7b8b2c07dea85646b8508fe1b61970c,
         type: 3}
@@ -576,7 +576,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 138194, guid: 04f58672f9936b649aa737042e50ff88, type: 3}
       propertyPath: m_Name
-      value: Object Pooler
+      value: arrowPooler
       objectReference: {fileID: 0}
     - target: {fileID: 438194, guid: 04f58672f9936b649aa737042e50ff88, type: 3}
       propertyPath: m_LocalPosition.x
@@ -722,7 +722,7 @@ PrefabInstance:
     - target: {fileID: 5424710930355574370, guid: 8e9f625b93a909e46b4864f2fc26abe0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5424710930355574370, guid: 8e9f625b93a909e46b4864f2fc26abe0,
         type: 3}
@@ -791,7 +791,7 @@ PrefabInstance:
     - target: {fileID: 3145816048830313318, guid: e7b8b2c07dea85646b8508fe1b61970c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3145816048830313318, guid: e7b8b2c07dea85646b8508fe1b61970c,
         type: 3}
@@ -1098,7 +1098,7 @@ PrefabInstance:
     - target: {fileID: 7086806899407631086, guid: 6fe86907dc4a92a438d69415b2a613d0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7086806899407631086, guid: 6fe86907dc4a92a438d69415b2a613d0,
         type: 3}
@@ -1134,6 +1134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7107685527251783827, guid: 6fe86907dc4a92a438d69415b2a613d0,
+        type: 3}
+      propertyPath: active
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fe86907dc4a92a438d69415b2a613d0, type: 3}
@@ -1187,7 +1192,7 @@ PrefabInstance:
     - target: {fileID: 1349865494053009668, guid: 801a48b2a28006240b7af08aff9b8e5e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1349865494053009668, guid: 801a48b2a28006240b7af08aff9b8e5e,
         type: 3}
